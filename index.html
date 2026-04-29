@@ -3,39 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARS.KONTEN | Jasa Penulisan Artikel Profesional</title>
+    <title>ARS.KONTEN | Premium Content Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
-        /* Global Styles */
+        :root {
+            --primary: #1a1a1a;
+            --accent: #c6a664; /* Gold muted */
+            --bg-light: #faf9f6;
+            --text-muted: #555;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f9;
+            line-height: 1.7;
+            color: var(--primary);
+            background-color: var(--bg-light);
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         /* Navigation */
         nav {
-            background: #2c3e50;
-            color: #fff;
-            padding: 1rem 5%;
+            background: rgba(250, 249, 246, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
             letter-spacing: 1px;
+            color: var(--primary);
         }
 
         .nav-links {
@@ -44,101 +58,174 @@
         }
 
         .nav-links li {
-            margin-left: 20px;
+            margin-left: 35px;
         }
 
         .nav-links a {
-            color: #fff;
+            color: var(--primary);
             text-decoration: none;
-            transition: 0.3s;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
         }
 
         .nav-links a:hover {
-            color: #3498db;
+            color: var(--accent);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
-            height: 80vh;
+            background-attachment: fixed;
+            height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: #fff;
-            padding: 0 20px;
+            color: var(--white);
+            padding: 0 10%;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
         }
 
         .btn {
-            background: #3498db;
-            color: #fff;
-            padding: 12px 30px;
+            background: var(--accent);
+            color: var(--white);
+            padding: 16px 40px;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: 0.3s;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: var(--transition);
         }
 
         .btn:hover {
-            background: #2980b9;
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-5px);
         }
 
-        /* Services / Features */
+        /* Sections General */
         .section {
-            padding: 4rem 5%;
+            padding: 100px 8%;
             text-align: center;
         }
 
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        /* Services Grid */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
             margin-top: 2rem;
         }
 
         .card {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
         /* Blog Section */
         .blog-item {
             text-align: left;
-            background: #fff;
-            border-radius: 8px;
+            background: var(--white);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+
+        .blog-item:hover {
+            transform: scale(1.02);
         }
 
         .blog-item img {
             width: 100%;
-            height: 200px;
+            height: 250px;
             object-fit: cover;
+            transition: var(--transition);
         }
 
         .blog-content {
-            padding: 1.5rem;
+            padding: 2rem;
+        }
+
+        .blog-content h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .blog-content p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
         /* Contact Section */
         .contact {
-            background: #ecf0f1;
+            background: #f0ede8;
+            border-radius: 20px;
+            margin: 0 8% 100px 8%;
         }
 
         .contact form {
@@ -149,23 +236,40 @@
         }
 
         .contact input, .contact textarea {
+            background: var(--white);
             margin-bottom: 1rem;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            padding: 15px;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            outline: none;
+            font-family: inherit;
+            transition: 0.3s;
         }
 
+        .contact input:focus, .contact textarea:focus {
+            border-color: var(--accent);
+        }
+
+        /* Footer */
         footer {
-            background: #2c3e50;
-            color: #fff;
+            background: var(--primary);
+            color: var(--white);
             text-align: center;
-            padding: 2rem;
+            padding: 4rem 8%;
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
         }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero h1 { font-size: 2rem; }
+            .hero { height: 70vh; }
+            .section { padding: 60px 5%; }
+            .contact { margin: 0 5% 60px 5%; padding: 40px 20px; }
         }
     </style>
 </head>
@@ -182,9 +286,9 @@
     </nav>
 
     <section class="hero" id="home">
-        <h1>Konten Berkualitas untuk Bisnis Anda</h1>
-        <p>Kami menyediakan jasa penulisan artikel SEO, blog post, dan copy yang memikat pembaca serta meningkatkan peringkat Google Anda.</p>
-        <a href="#kontak" class="btn">Pesan Sekarang</a>
+        <h1>Konten Berkualitas <br><i>untuk Bisnis Anda</i></h1>
+        <p>Kami merancang narasi yang memikat pembaca dan mendominasi mesin pencari melalui jasa penulisan artikel SEO profesional.</p>
+        <a href="#kontak" class="btn">Mulai Konsultasi</a>
     </section>
 
     <section class="section" id="layanan">
@@ -192,41 +296,41 @@
         <div class="grid">
             <div class="card">
                 <h3>Artikel SEO</h3>
-                <p>Optimasi keyword yang tepat agar website Anda muncul di halaman pertama mesin pencari.</p>
+                <p>Strategi optimasi kata kunci yang presisi untuk menempatkan website Anda di halaman utama pencarian.</p>
             </div>
             <div class="card">
                 <h3>Copywriting</h3>
-                <p>Tulisan persuasif untuk meningkatkan penjualan dan konversi produk Anda.</p>
+                <p>Rangkaian kata persuasif yang dirancang khusus untuk meningkatkan konversi dan penjualan produk Anda.</p>
             </div>
             <div class="card">
                 <h3>Kelola Blog</h3>
-                <p>Layanan update konten rutin mingguan agar website Anda tetap aktif dan relevan.</p>
+                <p>Manajemen konten rutin secara mingguan untuk memastikan otoritas website Anda terus meningkat.</p>
             </div>
         </div>
     </section>
 
-    <section class="section" style="background: #fff;" id="blog">
-        <h2>Contoh Artikel Terbaru</h2>
+    <section class="section" style="background: var(--white);" id="blog">
+        <h2>Portofolio Terbaru</h2>
         <div class="grid">
             <div class="blog-item">
                 <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=500&q=60" alt="Blog 1">
                 <div class="blog-content">
                     <h4>Strategi Digital Marketing 2024</h4>
-                    <p>Pelajari cara meningkatkan traffic organik dengan konten yang relevan...</p>
+                    <p>Bedah tuntas cara meningkatkan traffic organik dengan konten yang relevan dan bernilai tinggi.</p>
                 </div>
             </div>
             <div class="blog-item">
                 <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=500&q=60" alt="Blog 2">
                 <div class="blog-content">
                     <h4>Pentingnya SEO untuk UMKM</h4>
-                    <p>Mengapa bisnis kecil harus mulai memikirkan optimasi mesin pencari sejak dini...</p>
+                    <p>Alasan fundamental mengapa bisnis lokal harus membangun jejak digital melalui optimasi SEO.</p>
                 </div>
             </div>
             <div class="blog-item">
                 <img src="https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&w=500&q=60" alt="Blog 3">
                 <div class="blog-content">
-                    <h4>Tips Menulis Judul yang Clickable</h4>
-                    <p>Headline adalah segalanya. Berikut 5 rumus membuat judul yang menarik...</p>
+                    <h4>Seni Menulis Judul Persuasif</h4>
+                    <p>Teknik psikologi di balik pembuatan headline yang mampu meningkatkan click-through rate secara drastis.</p>
                 </div>
             </div>
         </div>
@@ -234,18 +338,19 @@
 
     <section class="section contact" id="kontak">
         <h2>Hubungi Kami</h2>
-        <p>Siap untuk meningkatkan kualitas konten Anda? Kirim pesan sekarang!</p>
+        <p>Siap untuk meningkatkan standar konten Anda? Mari berdiskusi tentang proyek besar Anda selanjutnya.</p>
         <form>
             <input type="text" placeholder="Nama Lengkap" required>
-            <input type="email" placeholder="Email Anda" required>
-            <textarea rows="5" placeholder="Detail Pesanan atau Pertanyaan" required></textarea>
-            <button type="submit" class="btn">Kirim Pesan</button>
+            <input type="email" placeholder="Alamat Email" required>
+            <textarea rows="5" placeholder="Detail Proyek yang Ingin Anda Diskusikan..." required></textarea>
+            <button type="submit" class="btn" style="border: none; cursor: pointer; width: 100%;">Kirim Pesan Sekarang</button>
         </form>
     </section>
 
     <footer>
-        <p>&copy; 2024 ARS.KONTEN - Jasa Penulisan Profesional. All Rights Reserved.</p>
-        <p>Semarang, Indonesia | WhatsApp: 082232750540</p>
+        <div style="margin-bottom: 2rem; font-family: 'Playfair Display', serif; font-size: 1.5rem;">ARS.KONTEN</div>
+        <p>&copy; 2026 ARS.KONTEN Studio. Seluruh hak cipta dilindungi.</p>
+        <p>Semarang, Indonesia | <strong>WA: 082232750540</strong></p>
     </footer>
 
 </body>
