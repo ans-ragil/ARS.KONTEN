@@ -671,7 +671,10 @@ nav.scrolled {
 .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
 .footer-brand { display: flex; flex-direction: column; }
 .footer-brand .logo-container { margin-bottom: 20px; gap: 15px; }
-.footer-brand .logo-img { height: 50px; }
+.footer-brand .logo-img { 
+  height: 50px; 
+  filter: brightness(0) invert(1); /* Trik ini akan mengubah gambar hitam menjadi putih bersih */
+}
 .footer-brand .logo-text { font-size: 1.8rem; color: #fff; }
 .footer-brand p { color: #a0a0a0; max-width: 440px; font-size: 0.95rem; }
 .footer-menu { display: flex; flex-direction: column; gap: 16px; }
